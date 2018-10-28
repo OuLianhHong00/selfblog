@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+   <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/blog.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/selfinfo.css">
+   <script type="text/javascript" src="__JS__/jquery-3.3.1.min.js"></script>
+   <script type="text/javascript" src="__JS__/selfInfo.js"></script>
+</head>
+<body>
+	{include file="admin/header"/}
+	<style>
+	.nav_2{
+     color:#EE0000;
+     border-bottom: #EE0000 solid thin;
+     } 
+   </style>
+   <div class="topline"><span>>>>当前所在位置：Sunshine个人博客——>个人中心</span></div>
+   <article>
+      <div class="tab">
+            <button class="tablinks" onclick="openContent(event,'Selfinfo')" id="defaultOpen">个人信息修改</button>
+            <button class="tablinks" onclick="openContent(event,'Prize')">获奖记录修改</button>
+            <button class="tablinks" onclick="openContent(event,'Intership')">实习经历修改</button> 
+      </div>
+      <!--个人信息修改-->
+      <div id="Selfinfo" class="tabcontent">
+   	<form action="/admin/Selfinfo/getSelfInfo" method="post" accept-charset="utf-8" enctype="multipart/form-data" name="selfinfoForm" onsubmit="return baseSelfInfo()">
+   		<table>
+   			<tr>
+   				<td class="tb_1">你的姓名：</td>
+   				<td class="tb_2"><input type="text" name="name" Value={$name}></td>
+   				<td><span style="font-size: 12px;color: red">*姓名必填</span></td>
+   			</tr>
+   			<tr>
+   				<td class="tb_1">工作经验：</td>
+   				<td><input type="radio" name="jobExper" value="有" checked>有
+   			       <input type="radio" name="jobExper" value="无">无</td>
+   			</tr>
+   			<tr>
+   				<td class="tb_1">现居地址：</td>
+   				<td class="tb_2"><input type="text" name="address" value={$address}></td>
+   			</tr>
+   			<tr>
+   				<td class="tb_1">政治面貌：</td>
+   				<td class="tb_2"><input type="text" name="political" value={$politicalface}></td>
+   			</tr>
+   			<tr>
+   				<td class="tb_1">电话：</td>
+   				<td class="tb_2"><input type="text" name="phone" value={$phone}></td>
+   			</tr>
+            <tr>
+               <td class="tb_1">邮箱：</td>
+               <td class="tb_2"><input type="text" name="emil" value={$emil}></td>
+            </tr>
+   			<tr>
+   				<td class="tb_1">微信：</td>
+   				<td class="tb_2"><input type="text" name="weixin" value={$weixin}></td>
+   			</tr>
+   			<tr>
+   				<td class="tb_1">QQ：</td>
+   				<td class="tb_2"><input type="text" name="qq" value={$QQ}></td>
+   			</tr>
+   			<tr>
+   				<td class="tb_1">入学时间：</td>
+   				<td class="tb_2"><input type="date" name="studytime" value={$studytime}></td>
+   			</tr>
+   			<tr>
+   				<td class="tb_1">学校：</td>
+   				<td class="tb_2"><input type="text" name="studyschool" value={$studyschool}></td>
+   			</tr>
+   			<tr>
+   				<td class="tb_1">专业：</td>
+   				<td class="tb_2"><input type="text" name="studymajor" value={$studyjob}></td>
+   			</tr>
+   			<tr>
+   				<td class="tb_1">院系：</td>
+   				<td class="tb_2"><input type="text" name="studycollege" value={$studycollege}></td>
+   			</tr>
+            <tr>
+               <td class="tb_1">学历：</td>
+               <td class="tb_2"><input type="text" name="studyresult" value={$studeresult}></td>
+            </tr>
+            <tr>
+               <td class="tb_1">自我评价：</td>
+               <td class="tb_3"><input  id="evaluation" name="evaluation" value={$evaluation}></td>
+            </tr>
+   		</table>
+             <div class="commit"><input type="submit" name="submit" value="提交"></div>
+   		
+   	</form>
+      </div>
+      <!--获奖经历-->
+      <div id="Prize" class="tabcontent">
+         <div class="tab_1">
+            <button class="tablinks_1" onclick="openTab(event,'AddPrize')" >添加奖项</button>
+            <button class="tablinks_1" onclick="openTab(event,'FixPrize')">修改奖项</button>
+             <button class="tablinks_1" onclick="openTab(event,'DelectPrize')">删除奖项</button>
+         </div>
+         <!--添加奖项-->
+         <div id="AddPrize" class="tabcontent_1">
+         <form id="prizeForm">
+            <div class="f1">
+               <span>奖项名字：</span>
+               <input type="text" id="prizename">
+           </div>
+           <div class="f1">
+            <span>获奖时间：</span>
+            <input type="date" id="prizetime">
+          </div>
+            <div class="commit"><input type="button" id="addPrize" value="提交"></div>
+         </form>
+         </div>
+      
+         <!--修改奖项-->
+         <div id="FixPrize" class="tabcontent_1">
+            {volist name="prizeList" id="vo"}
+            <div class="all">
+            <div class="left_p">
+            <div class="f1">
+            <span>奖项名字：</span>
+            <input type="text" id="prizename_1" value={$vo.prizename}>
+         </div>
+         <div class="f1">
+            <span>获奖时间：</span>
+            <input type="date" id="prizetime_1" value={$vo.prizetime}>
+         </div>
+         </div>
+         <div class="right_p"><input type="button" value="修改" onclick="occurModal('{$vo.prizename}','{$vo.prizetime}','{$vo.id}')"></div>
+         </div>
+            {/volist}
+         </div>
+         <!--修改奖项的弹窗-->
+         <div id="myModal" class="modal">
+            <div class="modal_content">
+               <div class="modal_header">
+                  <h3>获奖奖项的修改<span id="prizeId"></span></h3>
+               </div>
+            <div class="f1">
+            <span>奖项名字：</span>
+            <input type="text" id="prizename_2" >
+         </div>
+         <div class="f1">
+            <span>获奖时间：</span>
+            <input type="date" id="prizetime_2" >
+         </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="提交" onclick="fixPrize()">
+         </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="取消" onclick="canclePrize()">
+         </div>
+         </div>
+      </div>
+         
+         <!--删除奖项-->
+         <div id="DelectPrize" class="tabcontent_1">
+            {volist name="prizeList" id="vo"}
+            <div class="all">
+            <div class="left_p">
+            <div  style="margin-top: 20px;margin-left: 200px;"><input type="checkbox" name="prize" value={$vo.prizename} >{$vo.prizename}</div>
+           </div>
+            <div class="right_p"><input type="button" name="submit" value="删除" onclick="deletePrize({$vo.id})"></div>
+         </div>
+            {/volist}
+            
+         </div>
+      </div>
+      <!--实习经历-->
+      <div id="Intership" class="tabcontent">
+         <div class="tab_1">
+            <button class="tablinks_2" onclick="openIntership(event,'AddIntership')" >添加实习经历</button>
+            <button class="tablinks_2" onclick="openIntership(event,'FixIntership')">修改实习经历</button>
+            <button class="tablinks_2" onclick="openIntership(event,'DelectIntership')">删除实习经历</button>
+         </div>
+         <!--添加实习经历-->
+         <div id="AddIntership" class="tabcontent_2">
+            <form>
+            <div class="f1">
+               <span>公司名字：</span>
+               <input type="text" name="company" id="company">
+           </div>
+           <div class="f1">
+            <span>入职时间：</span>
+            <input type="date" id="intershiptime">
+          </div>
+          <div class="f1">
+            <span>实习职位：</span>
+            <input type="text" id="position">
+          </div>
+          <div class="f1">
+            <span>实习内容描述：</span>
+            <textarea rows="3" cols="20" id="description">
+               
+            </textarea>
+           
+          </div>
+            <div class="commit"><input type="button" id="addIntership" value="添加"></div>
+         </form>
+         </div>
+         <!--修改实习经历-->
+         <div id="FixIntership" class="tabcontent_2">
+            {volist name="item" id="vo"}
+            <div class="all">
+               <div class="left_p">
+            <div class="f1">
+               <span>公司名字：</span>
+               <input type="text"  value={$vo.company}>
+           </div>
+           <div class="f1">
+            <span>入职时间：</span>
+            <input type="date"  value={$vo.time}>
+          </div>
+          <div class="f1">
+            <span>实习职位：</span>
+            <input type="text"  value={$vo.position}>
+          </div>
+          <div class="f1">
+            <span>实习内容描述：</span>
+             <textarea rows="3" cols="20" id="description">
+               {$vo.description}
+            </textarea>
+          </div>
+       </div>
+      <div class="right_p"><input type="button" value="修改" onclick="intershipModal('{$vo.company}','{$vo.time}','{$vo.position}','{$vo.description}','{$vo.id}')"></div>
+     </div>
+            {/volist}
+         </div>
+         <!--修改实习经历的弹窗-->
+         <div id="intershipModal" class="modal">
+            <div class="modal_content">
+               <div class="modal_header">
+                  <h3>实习经历的修改<span id="intershipId_1"></span></h3>
+               </div>
+            <div class="f1">
+               <span>公司名字：</span>
+               <input type="text" id="company_1">
+           </div>
+           <div class="f1">
+            <span>入职时间：</span>
+            <input type="date" id="intershiptime_1">
+          </div>
+          <div class="f1">
+            <span>实习职位：</span>
+            <input type="text" id="position_1">
+          </div>
+          <div class="f1">
+            <span>实习内容描述：</span>
+           <textarea rows="3" cols="20" id="description_1">
+            </textarea>
+          </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="提交" onclick="fixIntership()">
+         </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="取消" onclick="cancleIntership()">
+         </div>
+         </div>
+      </div>
+         <!--删除实习经历-->
+         <div id="DelectIntership" class="tabcontent_2">
+            {volist name="item" id="vo"}
+            <div class="all">
+               <div class="left_p">
+            <div style="margin-top: 20px;margin-left: 200px;"><input type="checkbox" name="intership" value={$vo.company} >{$vo.company}</div>
+         </div>
+            <div class="right_p"><input type="button" name="submit" value="删除" onclick="deleteIntership({$vo.id})"></div>
+         </div>
+            {/volist}
+           
+         </div>
+      </div>
+      <script type="text/javascript">
+         document.getElementById("defaultOpen").click();
+      </script>
+   </article>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>博客详情</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/article.css">
+	<script type="text/javascript" src="__JS__/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__JS__/article.js"></script>
+</head>
+<body>
+		<h4>
+     		<b>Sunshine博客-->博客详情</b>
+     	</h4>
+	<article>
+		<h2>{$blog.blogname}</h2>
+		<p><span>{$blog.time}</span><span style="margin-left: 30px;">阅读数：{$blog.liulannum}</span><span style="margin-left: 30px;">评论数：{$blog.evalutiontime}</span></p>
+		<hr>
+	    <p>{$blog.content}</p>
+        <div class="foot">
+        	<button><a href="/admin/Blog/fixArticle/id/{$blog.id}" target="_blank" style="color: #404040;text-decoration: none">修改</a></button>
+        	<button onclick="delArticle('{$blog.id}','{$blog.blogname}')">删除</button>
+        </div>
+	</article>
+</body>
+</html>

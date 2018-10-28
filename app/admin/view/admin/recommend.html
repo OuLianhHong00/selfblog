@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>推荐</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/blog.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/selfinfo.css">
+   <script type="text/javascript" src="__JS__/jquery-3.3.1.min.js"></script>
+   <script type="text/javascript" src="__JS__/recommend.js"></script>
+</head>
+<body>
+	{include file="admin/header"/}
+	<style>
+	.nav_4{
+     color:#EE0000;
+     border-bottom: #EE0000 solid thin;
+     } 
+   </style>
+   <div class="topline"><span>>>>当前所在位置：Sunshine个人博客——>推荐</span></div>
+    <article>
+     <div class="tab">
+            <button class="tablinks" onclick="openContent(event,'Rmusic')" id="defaultOpen">推荐音乐修改</button>
+            <button class="tablinks" onclick="openContent(event,'Rbooks')">推荐书籍修改</button>
+            <button class="tablinks" onclick="openContent(event,'Rperson')">推荐人修改</button> 
+      </div>
+      <!--推荐音乐修改-->
+      <div id="Rmusic" class="tabcontent"> 
+         <div class="tab_1">
+            <button class="tablinks_1" onclick="openTab(event,'AddMusic')" >添加音乐</button>
+            <button class="tablinks_1" onclick="openTab(event,'FixMusic')">修改音乐</button>
+             <button class="tablinks_1" onclick="openTab(event,'DelectMusic')">删除音乐</button>
+         </div>
+         <!--添加音乐-->
+         <div id="AddMusic" class="tabcontent_1">
+         	<form>
+            <div class="f1">
+               <span>音乐名字：</span>
+               <input type="text" id="musicname">
+           </div>
+            <div class="f1">
+               <span>链接：</span>
+               <input type="text" id="musicurl">
+           </div>
+            <div class="commit"><input type="button" id="addMusic" value="提交"></div>
+         </form>
+         </div>
+         <!--修改音乐-->
+         <div id="FixMusic" class="tabcontent_1">
+         	 {volist name="musicList" id="vo"}
+            <div class="all">
+            <div class="left_p">
+            <div class="f1">
+            <span>音乐名字：</span>
+            <input type="text" id="musicname_1" value={$vo.name}>
+         </div>
+          <div class="f1">
+               <span>链接：</span>
+               <input type="text" id="musicurl_1" value={$vo.url}>
+           </div>
+         </div>
+         <div class="right_p"><input type="button" value="修改" onclick="occurMusicModal('{$vo.name}','{$vo.id}','{$vo.url}')"></div>
+         </div>
+            {/volist}
+         </div>
+         <!--修改音乐的弹窗-->
+         <div id="musicModal" class="modal">
+            <div class="modal_content">
+               <div class="modal_header">
+                  <h3>音乐推荐修改<span id="musicId"></span></h3>
+               </div>
+            <div class="f1">
+            <span>音乐名字：</span>
+            <input type="text" id="musicname_2" >
+         </div>
+          <div class="f1">
+               <span>链接：</span>
+               <input type="text" id="musicurl_2">
+           </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="提交" onclick="fixMusic()">
+         </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="取消" onclick="cancleMusic()">
+         </div>
+         </div>
+         </div>
+         <!--删除音乐-->
+         <div id="DelectMusic" class="tabcontent_1">
+         	 {volist name="musicList" id="vo"}
+            <div class="all">
+               <div class="left_p">
+            <div style="margin-top: 20px;margin-left: 200px;"><input type="checkbox" name="intership" value={$vo.name} >{$vo.name}</div>
+         </div>
+            <div class="right_p"><input type="button" name="submit" value="删除" onclick="deleteMusic({$vo.id})"></div>
+         </div>
+            {/volist}
+         </div>
+      </div>
+      <!--推荐书籍修改-->
+      <div id="Rbooks" class="tabcontent">
+         <div class="tab_1">
+            <button class="tablinks_2" onclick="openTabe(event,'AddBooks')" >添加书籍</button>
+            <button class="tablinks_2" onclick="openTabe(event,'FixBooks')">修改书籍</button>
+             <button class="tablinks_2" onclick="openTabe(event,'DelectBooks')">删除书籍</button>
+         </div>
+         <!--添加书籍-->
+         <div id="AddBooks" class="tabcontent_2">
+         	<form>
+            <div class="f1">
+               <span>书籍名字：</span>
+               <input type="text" id="bookname">
+           </div>
+            <div class="f1">
+               <span>链接：</span>
+               <input type="text" id="bookurl">
+           </div>
+            <div class="commit"><input type="button" id="addBook" value="提交"></div>
+         </form>
+         </div>
+         <!--修改书籍-->
+         <div id="FixBooks" class="tabcontent_2">
+         	 {volist name="bookList" id="vo"}
+            <div class="all">
+            <div class="left_p">
+            <div class="f1">
+            <span>书籍名字：</span>
+            <input type="text" id="bookname_1" value={$vo.name}>
+         </div>
+          <div class="f1">
+               <span>链接：</span>
+               <input type="text" id="bookurl_1" value="{$vo.url}">
+           </div>
+         </div>
+         <div class="right_p"><input type="button" value="修改" onclick="occurBookModal('{$vo.name}','{$vo.id}','{$vo.url}')"></div>
+         </div>
+            {/volist}
+         </div>
+         <!--修改书籍的弹窗-->
+         <div id="bookModal" class="modal">
+            <div class="modal_content">
+               <div class="modal_header">
+                  <h3>书籍推荐修改<span id="bookId"></span></h3>
+               </div>
+            <div class="f1">
+            <span>书籍名字：</span>
+            <input type="text" id="bookname_2" >
+         </div>
+         <div class="f1">
+               <span>链接：</span>
+               <input type="text" id="bookurl_2" >
+           </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="提交" onclick="fixBook()">
+         </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="取消" onclick="cancleBook()">
+         </div>
+         </div>
+         </div>
+         <!--删除书籍-->
+         <div id="DelectBooks" class="tabcontent_2">
+         	 {volist name="bookList" id="vo"}
+            <div class="all">
+               <div class="left_p">
+            <div style="margin-top: 20px;margin-left: 200px;"><input type="checkbox" name="intership" value={$vo.name} >{$vo.name}</div>
+         </div>
+            <div class="right_p"><input type="button" name="submit" value="删除" onclick="deleteBook({$vo.id})"></div>
+         </div>
+            {/volist}
+         </div>
+       </div>
+      <!--推荐人修改-->
+      <div id="Rperson" class="tabcontent"> 
+         <div class="tab_1">
+            <button class="tablinks_3" onclick="openTabs(event,'AddPerson')" >添加推荐人</button>
+            <button class="tablinks_3" onclick="openTabs(event,'FixPerson')">修改推荐人</button>
+             <button class="tablinks_3" onclick="openTabs(event,'DelectPerson')">删除推荐人</button>
+         </div>
+         <!--添加人-->
+         <div id="AddPerson" class="tabcontent_3">
+         	<form>
+            <div class="f1">
+               <span>人名：</span>
+               <input type="text" id="personname">
+           </div>
+            <div class="f1">
+               <span>链接：</span>
+               <input type="text" id="personurl">
+           </div>
+            <div class="commit"><input type="button" id="addPerson" value="提交"></div>
+         </form>
+         </div>
+         <!--修改人-->
+         <div id="FixPerson" class="tabcontent_3">
+         	 {volist name="personList" id="vo"}
+            <div class="all">
+            <div class="left_p">
+            <div class="f1">
+            <span>名字：</span>
+            <input type="text" id="personname_1" value={$vo.name}>
+         </div>
+          <div class="f1">
+               <span>链接：</span>
+               <input type="text" id="personurl_1" value={$vo.url}>
+           </div>
+         </div>
+         <div class="right_p"><input type="button" value="修改" onclick="occurPersonModal('{$vo.name}','{$vo.id}','{$vo.url}')"></div>
+         </div>
+            {/volist}
+         </div>
+         <!--修改音乐的弹窗-->
+         <div id="personModal" class="modal">
+            <div class="modal_content">
+               <div class="modal_header">
+                  <h3>人推荐修改<span id="personId"></span></h3>
+               </div>
+            <div class="f1">
+            <span>名字：</span>
+            <input type="text" id="personname_2" >
+         </div>
+          <div class="f1">
+               <span>链接：</span>
+               <input type="text" id="personurl_2">
+           </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="提交" onclick="fixPerson()">
+         </div>
+         <div class="f1">
+            <input type="button" id="prize_f1" value="取消" onclick="canclePerson()">
+         </div>
+         </div>
+         </div>
+         <!--删除人-->
+         <div id="DelectPerson" class="tabcontent_3">
+         	 {volist name="personList" id="vo"}
+            <div class="all">
+               <div class="left_p">
+            <div style="margin-top: 20px;margin-left: 200px;"><input type="checkbox" name="intership" value={$vo.name} >{$vo.name}</div>
+         </div>
+            <div class="right_p"><input type="button" name="submit" value="删除" onclick="deletePerson({$vo.id})"></div>
+         </div>
+            {/volist}
+         </div>
+      </div>
+       <script type="text/javascript">
+         document.getElementById("defaultOpen").click();
+      </script>
+   </article>
+</body>
+</html>
