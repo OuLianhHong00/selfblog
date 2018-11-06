@@ -19,6 +19,7 @@ class Blog extends Controller{
             $blog->time=$time;
             $blog->content=$content;
             $blog->picture='/public/uploads/'.$info->getSaveName();
+
             $result=$blog->save();
              if($info){
               
@@ -61,7 +62,9 @@ class Blog extends Controller{
             $blog->type=$type;
             $blog->time=$time;
             $blog->content=$content;
+
             $blog->picture='/public/uploads/'.$info->getSaveName();
+
             $result=$blog->save();
              if($info){
               
