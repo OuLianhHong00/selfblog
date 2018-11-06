@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>Sunshine个人博客</title>
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" type="text/css" href="__CSS__/index.css">
+</head>
+   <body>
+  <div>
+  	{include file="index/header"/}
+  </div>
+  <style>
+    .nav_1{
+      color: #454545;
+       background-color: #fffbf0;
+       border-radius: 50px 0;
+    }
+  </style>
+   <article>
+     <div class="box">
+       <div id="banner">
+         <!--Lauara图片-->
+         <ul id="pictures">
+           <li><img src="__IMG__/slider1.jpg" alt="" /></li>
+           <li><img src="__IMG__/slider2.jpg" alt="" /></li>
+           <li><img src="__IMG__/slider3.jpg" alt="" /></li>
+           <li><img src="__IMG__/slider4.jpg" alt="" /></li>
+         </ul>
+       </div>
+       <!--处理图片滑动问题-->
+        <script type="text/javascript">  
+          window.onload = function() {
+   var oDiv = document.getElementById("banner");
+   var oUl = document.getElementById("pictures");
+   var speed = -1;
+   var oLi = document.getElementsByTagName("li");
+
+   oUl.innerHTML += oUl.innerHTML; //先把图片增加一组
+   oUl.style.width = oLi.length * oLi[0].offsetWidth + "px";
+
+   function move() {
+     if (oUl.offsetLeft < -oUl.offsetWidth / 2) {
+       oUl.style.left = "0";
+     }
+     oUl.style.left = oUl.offsetLeft + speed + "px";
+   }
+   var timer = setInterval(move, 30);
+   oDiv.onmouseover = function() {
+     clearInterval(timer);
+   };
+   oDiv.onmouseout = function() {
+     timer = setInterval(move, 30);
+   };
+ }
+     </script>
+
+     <div class="topnews">
+     	<h2>
+     		<span>
+     			<a href="/../index/Index/mood" target="_blank" >心情随笔</a>
+     			<a href="/../index/Index/technology" target="_blank" >技术分享</a>
+     		</span>
+     		<b>最新文章</b>
+     	</h2>
+      {volist name="list" id="vo"}
+     	<div class="blogs">
+     		<div class="picture">
+     			<a href="/../index/Article/article/id/{$vo.id}" title="{$vo.blogname}" target="_blank">
+     				<img src={$vo.picture} style="width: 167px;height: 137px;display: block;margin-top: 30px;margin-bottom: 10px" alt="{$vo.blogname}" />
+     			</a>
+        </div>
+     		<div style="margin-left: 190px;">
+     			<h3 >
+     				<a href="/../index/Article/article/id/{$vo.id}" target="_blank" style="color: #404040;text-decoration: none">{$vo.blogname}</a>
+     			</h3>
+          <div style="font-size:14px;line-height:30px;height:80px;overflow:hidden;" >
+            {$vo.content}
+          </div>
+     			<p class="author">
+     				<span class="f_1">
+     					<img src="__IMG__/icon_1.jpg">
+     					{$vo.type}
+     				</span>
+     				<span class="f_1">
+     					<img src="__IMG__/icon_3.jpg">
+     					<span style="color: #474645">{$vo.time}</span>
+     				</span>
+     				<span class="f_1">
+     					<img src="__IMG__/icon_2.jpg">
+     						<span style="color: #474645">评论({$vo.evalutiontime})</span>
+     				</span>
+     				<span class="f_1">
+     				<img src="__IMG__/icon_4.jpg">
+     				<span style="color: #474645">浏览({$vo.liulannum})</span>
+     			   </span>
+     			</p>
+     		</div>
+     	</div>
+      {/volist}
+      <div class="page">{$page}</div>
+     </div>
+      </div>
+
+     <!--右侧部分-->
+     <div class="r_box">
+     	<div class="forme">
+     		<h3>关注我</h3>
+     		<div class="commit">
+     			<ul>
+     				<li>
+     					<img src="__IMG__/emil.png" alt="邮箱">
+     					<a href="#" style="color: #38485A;">邮箱</a>
+     				</li>
+     				<li>
+     					<img src="__IMG__/weixin.png" alt="微信">
+     					<span>微信</span>
+     				</li>
+     				<li>
+     					<img src="__IMG__/QQ.png" alt="QQ">
+     					<span>QQ</span>
+     				</li>
+     			</ul>
+     		</div>
+     	</div>
+     	<div class="forme">	
+           <h3>推荐的音乐</h3>
+           <div class="music">
+           	<ul>
+              {volist name="recommendMusic" id="vo"}
+           		<li><a style="text-decoration-line: none;" href={$vo.url} target="_blank">{$vo.name}</a></li>
+           		{/volist}
+           	</ul>
+           </div>
+     	</div>
+     	<div class="forme">	
+           <h3>推荐的书籍</h3>
+           <div class="book">
+           	<ul>
+           		{volist name="recommendBook" id="vo"}
+              <li><a style="text-decoration-line: none;" href={$vo.url} target="_blank">{$vo.name}</a></li>
+              {/volist}
+           	</ul>
+           </div>
+     	</div>
+     	<div class="forme">	
+           <h3>推荐的人</h3>
+           <div class="book">
+           	<ul>
+           		{volist name="recommendPeople" id="vo"}
+              <li><a style="text-decoration-line: none;" href={$vo.url} target="_blank">{$vo.name}</a></li>
+              {/volist}
+           	</ul>
+           </div>
+     	</div>
+     </div> 
+   </article>
+   </body>
+   </html>

@@ -1,0 +1,33 @@
+<div class="blogs">
+     		<div class="picture">
+     			<a href="/admin/Article/article/id/{$vo.id}" title="{$vo.blogname}" target="_blank">	
+            <img src="{$vo.picture}"  alt="{$vo.blogname}" style="margin-top: 30px" /> 
+     			</a>
+        </div>
+     		<div style="margin-left: 190px;">
+     			<h3 >
+     				<a href="/admin/Article/article/id/{$vo.id}" target="_blank" style="color: #404040;text-decoration: none">{$vo.blogname}</a>
+     			</h3>
+     			 <div style="font-size: 14px;line-height:20px;height:80px;overflow:hidden;" >
+                        {$vo.content}
+                    </div>
+     			<p class="author">
+     				<span class="f_1">
+     					<img src="__IMG__/icon_1.jpg">
+     					{$vo.type}
+     				</span>
+     				<span class="f_1">
+     					<img src="__IMG__/icon_3.jpg">
+     					<span style="color: #474645">{$vo.time}</span>
+     				</span>
+     				<span class="f_1">
+     					<img src="__IMG__/icon_2.jpg">
+     						<span style="color: #474645">评论({$vo.evalutiontime})</span>
+     				</span>
+     				<span class="f_1">
+     				<img src="__IMG__/icon_4.jpg">
+     				<span style="color: #474645">浏览({$vo.liulannum})</span>
+     			   </span>
+     			</p>
+     		</div>
+     	</div>

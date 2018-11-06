@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>博客留言-->sunshine博客</title>
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="__CSS__/article.css">
+  <link rel="stylesheet" type="text/css" href="__CSS__/index.css">
+  <script type="text/javascript" src="/../static/admin/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<div>
+  	{include file="index/header"/}
+  </div>
+  <style>
+    .nav_6{
+      color: #454545;
+       background-color: #fffbf0;
+       border-radius: 50px 0;
+    }
+  </style>
+  <article>
+    <div id="comment" class="mid">
+    <h2 style="margin-left: 5px;">写下你的建议：</h2>
+          <input type="text" id="otherinput" placeholder="你想对我说的话……">
+          <span onclick="newElement()" class="addBtn">评论</span>
+        </div>
+        <div class="mid_f">
+        <ul id="commentUL">
+         {volist name="proposalList" id="vo"}
+          <li>{$vo.text}<input type="text" class="proid" id="proid" value={$vo.id}></li>
+        {/volist}
+        </ul>
+      </div>
+  </article>
+  <script type="text/javascript" charset="utf-8" src="__JS__/proposal.js"></script>
+</body>

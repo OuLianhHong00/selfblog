@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/blog.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/admin.css">
+</head>
+<body>
+	{include file="admin/header"/}
+	<style>
+	.nav_1{
+     color:#EE0000;
+     border-bottom: #EE0000 solid thin;
+     } 
+   </style>
+   <article>
+   	<div class="lbox">
+  		  <div class="topnews">
+     	<h2>
+     		<b>Sunshine博客-->首页</b>
+     	</h2>
+      {volist name="list" id="vo"}
+     	{include file="admin/commonblog"/}
+      {/volist}
+      <div class="page">{$page}</div>
+     </div>
+  	</div>
+  	<div class="rbox">
+  		<h2>全部文章</h2>
+  		<ul>
+  			{volist name="list" id="vo"}
+  			<li style="margin-bottom: 10px">{$vo.blogname}</li>
+  			{/volist}
+  		</ul>
+  	</div>
+   </article>
+</body>
+</html>
