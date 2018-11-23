@@ -6,6 +6,7 @@
    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
    <link rel="icon" href="/favicon.ico" type="image/x-icon">
    <link rel="stylesheet" type="text/css" href="__CSS__/index.css">
+     <script type="text/javascript" src="__JS__/jquery-3.3.1.min.js"></script>
 </head>
    <body>
   <div>
@@ -20,16 +21,32 @@
   </style>
    <article>
      <div class="box">
-       <div id="banner">
-         <!--Lauara图片-->
-         <ul id="pictures">
-           <li><img src="__IMG__/slider1.jpg" alt="" /></li>
-           <li><img src="__IMG__/slider2.jpg" alt="" /></li>
-           <li><img src="__IMG__/slider3.jpg" alt="" /></li>
-           <li><img src="__IMG__/slider4.jpg" alt="" /></li>
-         </ul>
-       </div>
-       <!--处理图片滑动问题-->
+      <div id="banner" class="yx_rotaion">
+        <!--图片轮播-->
+        <div class="bd">
+          <ul id="picture" class="rotaion_list">
+            <li style="display: none;position: absolute;">
+              <img src="__IMG__/slider1.jpg" alt="" /></li>
+              <li style="display: none;position: absolute;">
+              <img src="__IMG__/slider2.jpg" alt="" /></li>
+              <li style="display: none;position: absolute;max-height: ">
+              <img src="__IMG__/slider3.jpg" alt="" /></li>
+              <li style="display: none;position: absolute;">
+              <img src="__IMG__/slider4.jpg" alt="" /></li>
+              <li style="display: none;position: absolute;">
+              <img src="__IMG__/slider5.jpg" alt="" /></li>
+              <li style="display: none;position: absolute;">
+              <img src="__IMG__/slider6.jpg" alt="程序员的道路" /></li>
+          </ul>
+        </div>
+        </div>
+      <script type="text/javascript" src="__JS__/index.js"></script>
+      <script type="text/javascript">
+        $(".yx_rotaion").yx_rotaion({auto:true});
+      </script>
+     
+      
+       <!--处理图片滑动问题--
         <script type="text/javascript">  
           window.onload = function() {
    var oDiv = document.getElementById("banner");
@@ -55,7 +72,7 @@
    };
  }
      </script>
-
+-->
      <div class="topnews">
      	<h2>
      		<span>
