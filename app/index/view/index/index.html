@@ -76,23 +76,23 @@
      <div class="topnews">
      	<h2>
      		<span>
-     			<a href="/../index/Index/mood" target="_blank" >心情随笔</a>
-     			<a href="/../index/Index/technology" target="_blank" >技术分享</a>
+     			<a href="/../index/mood" target="_blank" >心情随笔</a>
+     			<a href="/../index/technology" target="_blank" >技术分享</a>
      		</span>
      		<b>最新文章</b>
      	</h2>
       {volist name="list" id="vo"}
      	<div class="blogs">
      		<div class="picture">
-     			<a href="/../index/Article/article/id/{$vo.id}" title="{$vo.blogname}" target="_blank">
+     			<a href="/../index/article/id/{$vo.id}" title="{$vo.blogname}" target="_blank">
      				<img src={$vo.picture} style="width: 167px;height: 137px;display: block;margin-top: 30px;margin-bottom: 10px" alt="{$vo.blogname}" />
      			</a>
         </div>
      		<div style="margin-left: 190px;">
      			<h3 >
-     				<a href="/../index/Article/article/id/{$vo.id}" target="_blank" style="color: #404040;text-decoration: none">{$vo.blogname}</a>
+     				<a href="/../index/article/id/{$vo.id}" target="_blank" style="color: #404040;text-decoration: none">{$vo.blogname}</a>
      			</h3>
-          <div style="font-size:14px;line-height:30px;height:80px;overflow:hidden;" >
+          <div id="art_content">
             {$vo.content}
           </div>
      			<p class="author">

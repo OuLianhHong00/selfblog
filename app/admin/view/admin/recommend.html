@@ -19,17 +19,30 @@
    <div class="topline"><span>>>>当前所在位置：Sunshine个人博客——>推荐</span></div>
     <article>
      <div class="tab">
-            <button class="tablinks" onclick="openContent(event,'Rmusic')" id="defaultOpen">推荐音乐修改</button>
-            <button class="tablinks" onclick="openContent(event,'Rbooks')">推荐书籍修改</button>
-            <button class="tablinks" onclick="openContent(event,'Rperson')">推荐人修改</button> 
+            <button class="tablinks" onclick="openContent(event,'Rmusic','tab_music')" id="defaultOpen">推荐音乐修改</button>
+            <!--子菜单-->
+            <div class="tab_1" id="tab_music">
+            <button class="tablinks_1" onclick="openTab(event,'AddMusic')" >&gt&emsp;&gt添加音乐</button>
+            <button class="tablinks_1" onclick="openTab(event,'FixMusic')">&gt&emsp;&gt修改音乐</button>
+             <button class="tablinks_1" onclick="openTab(event,'DelectMusic')">&gt&emsp;&gt删除音乐</button>
+           </div>
+            <button class="tablinks" onclick="openContent(event,'Rbooks','tab_books')">推荐书籍修改</button>
+            <!--子菜单-->
+             <div class="tab_1" id="tab_books">
+            <button class="tablinks_2" onclick="openTabe(event,'AddBooks')" >&gt&emsp;&gt添加书籍</button>
+            <button class="tablinks_2" onclick="openTabe(event,'FixBooks')">&gt&emsp;&gt修改书籍</button>
+             <button class="tablinks_2" onclick="openTabe(event,'DelectBooks')">&gt&emsp;&gt删除书籍</button>
+         </div>
+            <button class="tablinks" onclick="openContent(event,'Rperson','tab_person')">推荐人修改</button> 
+            <!--子菜单-->
+             <div class="tab_1" id="tab_person">
+            <button class="tablinks_3" onclick="openTabs(event,'AddPerson')" >&gt&emsp;&gt添加推荐人</button>
+            <button class="tablinks_3" onclick="openTabs(event,'FixPerson')">&gt&emsp;&gt修改推荐人</button>
+             <button class="tablinks_3" onclick="openTabs(event,'DelectPerson')">&gt&emsp;&gt删除推荐人</button>
+         </div>
       </div>
       <!--推荐音乐修改-->
       <div id="Rmusic" class="tabcontent"> 
-         <div class="tab_1">
-            <button class="tablinks_1" onclick="openTab(event,'AddMusic')" >添加音乐</button>
-            <button class="tablinks_1" onclick="openTab(event,'FixMusic')">修改音乐</button>
-             <button class="tablinks_1" onclick="openTab(event,'DelectMusic')">删除音乐</button>
-         </div>
          <!--添加音乐-->
          <div id="AddMusic" class="tabcontent_1">
          	<form>
@@ -98,11 +111,7 @@
       </div>
       <!--推荐书籍修改-->
       <div id="Rbooks" class="tabcontent">
-         <div class="tab_1">
-            <button class="tablinks_2" onclick="openTabe(event,'AddBooks')" >添加书籍</button>
-            <button class="tablinks_2" onclick="openTabe(event,'FixBooks')">修改书籍</button>
-             <button class="tablinks_2" onclick="openTabe(event,'DelectBooks')">删除书籍</button>
-         </div>
+         
          <!--添加书籍-->
          <div id="AddBooks" class="tabcontent_2">
          	<form>
@@ -171,11 +180,7 @@
        </div>
       <!--推荐人修改-->
       <div id="Rperson" class="tabcontent"> 
-         <div class="tab_1">
-            <button class="tablinks_3" onclick="openTabs(event,'AddPerson')" >添加推荐人</button>
-            <button class="tablinks_3" onclick="openTabs(event,'FixPerson')">修改推荐人</button>
-             <button class="tablinks_3" onclick="openTabs(event,'DelectPerson')">删除推荐人</button>
-         </div>
+        
          <!--添加人-->
          <div id="AddPerson" class="tabcontent_3">
          	<form>

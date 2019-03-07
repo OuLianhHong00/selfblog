@@ -26,13 +26,13 @@
       {volist name="moodList" id="vo"}
         <div class="blogs">
         <div class="picture">
-          <a href="/../index/Article/article/id/{$vo.id}" title="{$vo.blogname}" target="_blank">
+          <a href="/../index/article/id/{$vo.id}" title="{$vo.blogname}" target="_blank">
             <img src={$vo.picture} style="width: 167px;height: 137px;display: block;margin-top: 30px;margin-bottom: 10px" alt="{$vo.blogname}" />
           </a>
         </div>
         <div style="margin-left: 190px;">
           <h3 >
-            <a href="/../index/Article/article/id/{$vo.id}" target="_blank" style="color: #404040;text-decoration: none">{$vo.blogname}</a>
+            <a href="/../index/article/id/{$vo.id}" target="_blank" style="color: #404040;text-decoration: none">{$vo.blogname}</a>
           </h3>
           <div style="font-size:14px;line-height:30px;height:80px;overflow:hidden;" >
             {$vo.content}
