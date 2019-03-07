@@ -1,0 +1,88 @@
+.lbox{
+	width: 70%;
+	height: 100%;
+	float: left;
+	padding-right: 20px;
+	background-color: #FFFFFF;
+}
+.rbox{
+	width: 25%;
+	float: right;
+	background-color: #FFFFFF;
+}
+.rbox h2{
+	background-color: #40E0D0;
+	text-align: center;
+	margin:10px 15px;
+}
+#pictures{
+  position: relative;
+  left:0;
+  top:0;
+  overflow: hidden;
+}
+#pictures li{
+  float: left;
+  width: 670px;
+  height: 300px;
+}
+
+.topnews{
+  width: 670px;
+  margin: 20px 10px 20px 0px;
+}
+.topnews h2{
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 36px;
+  border-bottom: #afbfed 4px solid;
+}
+.topnews h2 span { 
+  float: right; 
+  font-size: 15px;
+   font-weight: normal; 
+ }
+.blogs {  
+  position: relative; 
+  border-bottom: #BFAB86 1px solid; 
+   overflow: hidden 
+ }
+.picture{
+  width:25%;
+  float:left;
+}
+.picture img{
+  width:160px;
+  height:137px;
+  margin:10px 8px 10px 0px;
+  display: block;
+}
+.blogs:hover{
+ background:#fff
+}
+.autor {
+ overflow: hidden; 
+ clear: both; 
+ margin: 10px 0; 
+ display: inline-block; 
+ color: #999; width: 100%;  }
+.f_1 a:link{ 
+  color: #474645; 
+  text-decoration: none；
+}
+.f_1 a:hover { 
+  color: #066;
+  text-decoration: underline 
+}
+.f_1{margin-right: 5px}
+.page ul{
+  width: 100%;
+  margin:20px 250px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.page ul li{
+  list-style: none;
+  display: inline-block;
+  margin-left: 15px;
+}
