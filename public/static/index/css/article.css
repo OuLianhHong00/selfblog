@@ -1,0 +1,125 @@
+h4{
+	margin-left: 20px;
+	border-bottom: #BFAB86 2px solid; 
+	color: #88690f;
+}
+article{
+	width: 60%;
+	margin:auto;
+}
+.foot{
+	width: 100%;
+	height: 80px;
+	margin-top: 100px;
+	background-color: #f5f1eb;
+}
+.foot button{
+	margin-top: 10px;
+	margin-left: 400px;
+    background-color: #85b7f5;
+	font-size: 20px;
+}
+/* Popup container - can be anything you want */
+.popup {
+	width: 40px;
+	height: 40px;
+	margin-top: 20px;
+	margin-left: 500px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 30px;
+  border:#BFAB86 2px solid;
+  background-image: url("/public/static/index/img/zan.jpg");
+}
+ 
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+}
+
+
+.mid{
+	  background-color:#de867f;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+}
+.mid:after{
+	content: "";
+    display: table;
+    clear: both;
+}
+.mid input{
+	border: none;
+    width: 70%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+.addBtn{
+	padding: 10px;
+  width: 25%;
+  background:#7dd6e6;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.addBtn:hover {
+  background-color: #bbb;
+}
+.mid_f{
+  background-color:#de867f;
+}
+ul li{
+	position: relative;
+	padding: 12px 8px 12px 40px;
+	background: #eee;
+	font-size: 18px;
+	cursor: pointer;
+}
+ul li:hover{
+	background-color: #ddd;
+}
+.close{
+	position: absolute;
+	right: 0;
+	top:0;
+	padding: 12px 16px 12px 16px;
+}
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+.proid{visibility: hidden;}

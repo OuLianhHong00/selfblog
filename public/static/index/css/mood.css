@@ -1,0 +1,17 @@
+.lbox{
+	width: 70%;
+	height: 100%;
+	float: left;
+	padding-right: 20px;
+	background-color: #FFFFFF;
+}
+.rbox{
+	width: 25%;
+	float: right;
+	background-color: #FFFFFF;
+}
+.rbox h2{
+	background-color: #40E0D0;
+	text-align: center;
+	margin:10px 15px;
+}

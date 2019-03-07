@@ -1,0 +1,55 @@
+.Lbox{
+    width: 27%;
+    background-color: #00008B;
+    color: #FFFFFF;
+    float: left;
+}
+.Lbox img{
+	margin:30px 60px;
+}
+.LboxTitle h3{
+	background-color: #FFFFFF;
+    color: #00008B;
+    border-color: #8c6244;
+    margin: 0px 20px;
+    text-align: center
+}
+.info{
+	margin: 10px 5px;
+}
+.info ul li{
+	list-style-image:url("/public/static/index/img/icon_1.jpg");
+	margin-bottom: 10px;
+}
+.rbox{
+	width: 70%;
+	margin-right: 10px;
+	float: right;
+}
+.rboxTitle h3{
+	background-color: #E0E0E0;
+	margin:10px 10px 10px 20px;
+	color:#00008B;
+}
+.litTitle{
+	width: 90%;
+	height: 20px;
+	margin: 10px 10px 10px 20px;
+	color: #00008B;
+}
+.time{
+	width: 30%;
+	float: left;
+}
+.address{
+	width: 30%;
+	margin-left: 50px;
+}
+.job{
+	width: 30%;
+	float: right;
+}
+.info1 li{
+	line-height: 30px;
+	list-style:square;
+}
